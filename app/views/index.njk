@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+{% include "partials/head.njk" %}
+
+<body>
+	<input type="checkbox" id="nav-trigger">
+	<div id="top">
+		<a href="#" class="nav">{{ data.top.nav }}</a>
+		<label for="nav-trigger">&#9776;</label>
+	</div>
+
+	<div id="sidebar">
+		<nav>
+			<ul>
+				{% for section in data.section %}
+				<li><a href="#{{ section.template + loop.index0 }}">{{ section.nav }}</a></li>
+				{% endfor %}
+			</ul>
+		</nav>
+	</div>
+
+	<div id="main">
+		<div class="section">
+			<span id="title" tabindex="-1"></span>
+			<div id="bg-img"></div>
+			<h1>{{ data.top.title }}</h1>
+		</div>
+
+		{% for section in data.section %}
+			{% set sectionIndex = loop.index0 %}
+			{% include "partials/section/" + section.template + ".njk" %}
+		{% endfor %}
+	</div>
+
+	{% include "partials/footer.njk" %}
+
+</body>
+
+</html>

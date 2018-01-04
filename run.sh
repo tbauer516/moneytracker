@@ -1,0 +1,1 @@
+docker run -d -v ~/.ssh:/home/node/.ssh --name moneytracker -p 8202:8080 moneytracker-image
