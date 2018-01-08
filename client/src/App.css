@@ -4,7 +4,7 @@
 --lg: 1200px; */
 
 
-.root {
+.app-root {
   /* align-items: start; */
   box-sizing: border-box;
   display: grid;

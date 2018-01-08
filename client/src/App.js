@@ -3,8 +3,7 @@ import './App.css';
 import { fetchEndpoint } from './utilities.js';
 import * as d3 from 'd3';
 
-import ScatterPlot from './components/ScatterPlot.js';
-import LineChart from './components/LineChart.js';
+import Chart from './components/Chart/Chart.js';
 
 class App extends Component {
 	constructor(props) {
@@ -76,9 +75,9 @@ class App extends Component {
 		const yDomainByDay = d3.extent(dataByDay, (d) => { return d.spent; });
 
     	return (
-			<div className="root">
-				<ScatterPlot data={dataByDay} selector='svg' xDomain={xDomainByDay} yDomain={yDomainByDay} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: months }} />
-				<LineChart data={dataByDay} selector='svg' xDomain={xDomainByDay} yDomain={yDomainByDay} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: months }} />
+			<div className="app-root">
+				<Chart  type='LineChart' data={dataByDay} xDomain={xDomainByDay} yDomain={yDomainByDay} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: months }} />
+				<Chart  type='ScatterPlot' data={dataByDay} xDomain={xDomainByDay} yDomain={yDomainByDay} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: months }} />
       		</div>
     	);
 	};
