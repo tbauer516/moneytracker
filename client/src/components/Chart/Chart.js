@@ -4,6 +4,7 @@ import * as d3 from 'd3';
 import Axis from './Axis/Axis.js';
 import LineChart from './Visual/LineChart.js';
 import ScatterPlot from './Visual/ScatterPlot.js';
+import BarChart from './Visual/BarChart.js';
 
 class Chart extends Component {
 
@@ -81,10 +82,10 @@ class Chart extends Component {
 	getChartByName(name) {
 		const charts = {
 			ScatterPlot: ScatterPlot,
-			LineChart: LineChart
+			LineChart: LineChart,
+			BarChart: BarChart
 		}
 		return charts[name];
-		return '';
 	};
 };
 

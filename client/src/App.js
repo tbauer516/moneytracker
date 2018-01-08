@@ -78,6 +78,7 @@ class App extends Component {
 			<div className="app-root">
 				<Chart  type='LineChart' data={dataByDay} xDomain={xDomainByDay} yDomain={yDomainByDay} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: months }} />
 				<Chart  type='ScatterPlot' data={dataByDay} xDomain={xDomainByDay} yDomain={yDomainByDay} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: months }} />
+				<Chart  type='BarChart' data={dataByDay} xDomain={xDomainByDay} yDomain={yDomainByDay} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: months }} />
       		</div>
     	);
 	};
