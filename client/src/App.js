@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fetchEndpoint } from './utilities.js';
+import * as utils from './utilities';
 import * as d3 from 'd3';
 
-import Chart from './components/Chart/Chart.js';
+import Chart from './components/Chart/Chart';
 
 class App extends Component {
 	constructor(props) {
@@ -14,10 +14,9 @@ class App extends Component {
 	};
 
 	render() {
-		console.log('App rendered');
 		const rawData = this.state.rawData;
 		if (!rawData)
-			return (<div></div>);
+			return ('');
 
 		let parsedData = d3.csvParse(rawData, (d) => {
 			return {
@@ -52,8 +51,6 @@ class App extends Component {
 			return res.sort((a, b) => { return a - b; });
 		}, []);
 		
-		console.log(parsedData);
-		
 		// combine transactions by day
 		const dataByDay = d3.nest()
 			.key((d) => { return d.date.getTime(); })
@@ -73,12 +70,12 @@ class App extends Component {
 		];
 		
 		const yDomainByDay = d3.extent(dataByDay, (d) => { return d.spent; });
-
+		
     	return (
 			<div className="app-root">
-				<Chart  type='LineChart' data={dataByDay} xDomain={xDomainByDay} yDomain={yDomainByDay} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: months }} />
-				<Chart  type='ScatterPlot' data={dataByDay} xDomain={xDomainByDay} yDomain={yDomainByDay} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: months }} />
-				<Chart  type='BarChart' data={dataByDay} xDomain={xDomainByDay} yDomain={yDomainByDay} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: months }} />
+				<Chart type='LineChart' data={dataByDay} xDomain={xDomainByDay} yDomain={yDomainByDay} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: months }} />
+				<Chart type='ScatterPlot' data={dataByDay} xDomain={xDomainByDay} yDomain={yDomainByDay} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: months }} />
+				<Chart type='BarChart' data={dataByDay} xDomain={xDomainByDay} yDomain={yDomainByDay} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: months }} />
       		</div>
     	);
 	};
@@ -90,7 +87,7 @@ class App extends Component {
 	componentDidMount() {
 		// window.addEventListener("resize", this.updateDimensions);
 
-		fetchEndpoint('/data', 'text').then(rawData => {
+		utils.fetchEndpoint('/data', 'text').then(rawData => {
 			this.setState({
 				rawData: rawData
 			});

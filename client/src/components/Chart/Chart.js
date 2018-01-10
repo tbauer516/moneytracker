@@ -36,7 +36,7 @@ class Chart extends Component {
 	};
 
 	render() {
-		console.log(`${this.constructor.name} rendered`);
+		// console.log(`${this.constructor.name} rendered`);
 		const ChartType = this.getChartByName(this.props.type);
 		
 		const rendered = this.state.initialRender;

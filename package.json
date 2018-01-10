@@ -20,6 +20,7 @@
 		"start": "concurrently \"npm run server\" \"npm run client\"",
 		"server": "node server.js",
 		"client": "node start-client.js",
+		"test-client": "node test-client.js",
 		"lint": "eslint ."
 	},
 	"author": "Tyler Bauer",

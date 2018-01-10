@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 
 class BaseChart extends Component {
 	render() {
-		console.log(`${this.constructor.name} rendered`);
+		// console.log(`${this.constructor.name} rendered`);
 		return (
 			<g ref={ this.onRef } className='chart-vis'></g>
 		);
