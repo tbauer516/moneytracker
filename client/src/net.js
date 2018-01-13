@@ -7,4 +7,8 @@ const fetchEndpoint = async (loc, method) => {
     }
 };
 
-export { fetchEndpoint };
+const net = {
+    fetchEndpoint: fetchEndpoint
+};
+
+export default net;

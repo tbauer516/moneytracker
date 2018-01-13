@@ -9,24 +9,19 @@ import BarChart from './Visual/BarChart.js';
 class Chart extends Component {
 
 	constructor(props) {
-		super();
+		super(props);
+
+		this.static = {
+			config: { radius: 3, stroke: 1 },
+			margin: { top: 20, right: 20, bottom: 40, left: 60 },
+			axisFontSize: '1.5em'
+		};
+
+		// options: chartTitle, xTitle, yTitle, xTicks, yTicks
 
 		this.state = {
 			initialRender: false,
 			node: null,
-			data: props.data,
-			xDomain: props.xDomain,
-			yDomain: props.yDomain,
-			options: {
-				chartTitle: props.options.chartTitle || null,
-				xTitle: props.options.xTitle || null,
-				yTitle: props.options.yTitle || null,
-				xTicks: props.options.xTicks || null,
-				yTicks: props.options.yTicks || null,
-				axisFontSize: '1.5em'
-			},
-			config: { radius: 3, stroke: 1 },
-			margin: { top: 20, right: 20, bottom: 40, left: 60 },
 			dimensions: {
 				w: null,
 				h: null,
@@ -40,8 +35,8 @@ class Chart extends Component {
 		const ChartType = this.getChartByName(this.props.type);
 		
 		const rendered = this.state.initialRender;
-		const axis = rendered ? <Axis options={ this.state.options } margin={ this.state.margin } dimensions={ this.state.dimensions } /> : '';
-		const chart = rendered ? <ChartType data={this.state.data} config={ this.state.config } margin={ this.state.margin } dimensions={ this.state.dimensions } /> : '';
+		const axis = rendered ? <Axis options={ this.props.options } margin={ this.static.margin } dimensions={ this.state.dimensions } /> : '';
+		const chart = rendered ? <ChartType data={this.props.data} config={ this.static.config } margin={ this.static.margin } dimensions={ this.state.dimensions } /> : '';
 
 		return (
 			<div className='chart-root'>
@@ -57,7 +52,7 @@ class Chart extends Component {
 
 	onRef = (ref) => {
 		const svg = d3.select(ref);
-		const margin = this.state.margin;
+		const margin = this.static.margin;
 
 		const svgWidth = +svg.style('width').replace('px', '');
 		const svgHeight = +svg.style('height').replace('px', '');
@@ -72,8 +67,8 @@ class Chart extends Component {
 				w: svgWidth,
 				h: svgHeight,
 				scale: {
-					x: d3.scaleLinear().domain(this.state.xDomain).range([0, gWidth]),
-					y: d3.scaleLinear().domain(this.state.yDomain).range([gHeight, this.state.config.radius])
+					x: d3.scaleLinear().domain(this.props.xDomain).range([0, gWidth]),
+					y: d3.scaleLinear().domain(this.props.yDomain).range([gHeight, this.static.config.radius])
 				}
 			}
 		});

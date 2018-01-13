@@ -4,4 +4,8 @@ const fetchEndpoint = async (loc, method) => {
         12/9/2017 14:15:59,"Dec 9, 2017",Amazon Fresh,Groceries,72.55,0.00,0.00,Tyler,Tyler`;
 };
 
-export { fetchEndpoint };
+const net = {
+    fetchEndpoint: fetchEndpoint
+};
+
+export default net;

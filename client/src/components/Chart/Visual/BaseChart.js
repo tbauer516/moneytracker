@@ -10,7 +10,9 @@ class BaseChart extends Component {
 	};
 
 	onRef = (ref) => {
-		this.setState({ node: ref });
+		this.setState({
+			node: ref
+		});
 	};
 
 	componentDidUpdate(prevProps, prevState) {
