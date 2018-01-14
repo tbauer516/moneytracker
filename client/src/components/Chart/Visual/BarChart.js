@@ -21,12 +21,11 @@ class BarChart extends BaseChart {
 			.attr('x', (d) => { return x(d.date); })
 			.attr('y', (d) => { return y(d.spent); })
 			.attr('width', (d) => { let today = new Date(); return x(today.setHours(today.getHours() + 18)) - x(new Date()); })
-			.attr('height', (d) => { return dimensions.h - margin.top - margin.bottom - y(d.spent); })
+			.attr('height', (d) => { return dimensions.body.h - margin.top - margin.bottom - y(d.spent); })
 			.merge(bar);
 
 		bar.exit()
 			.remove();
-
 	};
 };
 

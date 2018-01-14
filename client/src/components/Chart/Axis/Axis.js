@@ -27,8 +27,8 @@ class Axis extends Component {
 		margin,
 		dimensions
 	) {
-		const svgWidth = dimensions.w;
-		const svgHeight = dimensions.h;
+		const svgWidth = dimensions.body.w;
+		const svgHeight = dimensions.body.h;
 		const gWidth = svgWidth - margin.left - margin.right;
 		const gHeight = svgHeight - margin.top - margin.bottom;
 

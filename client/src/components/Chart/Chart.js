@@ -11,12 +11,6 @@ class Chart extends Component {
 	constructor(props) {
 		super(props);
 
-		this.static = {
-			config: { radius: 3, stroke: 1 },
-			margin: { top: 20, right: 20, bottom: 40, left: 60 },
-			axisFontSize: '1.5em'
-		};
-
 		// options: chartTitle, xTitle, yTitle, xTicks, yTicks
 
 		this.state = {
@@ -30,13 +24,19 @@ class Chart extends Component {
 		};
 	};
 
+	static config = {
+		visual: { radius: 3, stroke: 1},
+		margin: { top: 20, right: 20, bottom: 40, left: 60 },
+		axisFontSize: '1.5em'
+	};
+
 	render() {
 		// console.log(`${this.constructor.name} rendered`);
 		const ChartType = this.getChartByName(this.props.type);
 		
 		const rendered = this.state.initialRender;
-		const axis = rendered ? <Axis options={ this.props.options } margin={ this.static.margin } dimensions={ this.state.dimensions } /> : '';
-		const chart = rendered ? <ChartType data={this.props.data} config={ this.static.config } margin={ this.static.margin } dimensions={ this.state.dimensions } /> : '';
+		const axis = rendered ? <Axis options={ this.props.options } margin={ Chart.config.margin } dimensions={ this.state.dimensions } /> : '';
+		const chart = rendered ? <ChartType data={this.props.data} config={ Chart.config.visual } margin={ Chart.config.margin } dimensions={ this.state.dimensions } /> : '';
 
 		return (
 			<div className='chart-root'>
@@ -52,26 +52,34 @@ class Chart extends Component {
 
 	onRef = (ref) => {
 		const svg = d3.select(ref);
-		const margin = this.static.margin;
 
 		const svgWidth = +svg.style('width').replace('px', '');
 		const svgHeight = +svg.style('height').replace('px', '');
-		const gWidth = svgWidth - margin.left - margin.right;
-		const gHeight = svgHeight - margin.top - margin.bottom;
 
 		this.setState({
 			node: ref,
 			initialRender: true,
-
 			dimensions: {
-				w: svgWidth,
-				h: svgHeight,
-				scale: {
-					x: d3.scaleLinear().domain(this.props.xDomain).range([0, gWidth]),
-					y: d3.scaleLinear().domain(this.props.yDomain).range([gHeight, this.static.config.radius])
-				}
+				body: { w: svgWidth, h: svgHeight },
+				scale: Chart.getScales(
+					svgWidth,
+					svgHeight,
+					Chart.config.margin,
+					this.props.xDomain,
+					this.props.yDomain
+				)
 			}
 		});
+	};
+
+	static getScales(svgW, svgH, margin, xDomain, yDomain) {
+		const gW = svgW - margin.left - margin.right;
+		const gH = svgH - margin.top - margin.bottom;
+
+		return {
+			x: d3.scaleLinear().domain(xDomain).range([0, gW]),
+			y: d3.scaleLinear().domain(yDomain).range([gH, Chart.config.visual.radius])
+		};
 	};
 
 	getChartByName(name) {
