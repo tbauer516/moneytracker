@@ -21,9 +21,10 @@ class App extends Component {
 
 		return (
 			<div className="app-root">
-				<Chart type='LineChart' data={data.getSumByDay()} xDomain={data.getDomainDay()} yDomain={data.getDomainSpent()} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getMonths() }} />
-				<Chart type='ScatterPlot' data={data.getSumByDay()} xDomain={data.getDomainDay()} yDomain={data.getDomainSpent()} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getMonths() }} />
-				<Chart type='BarChart' data={data.getSumByDay()} xDomain={data.getDomainDay()} yDomain={data.getDomainSpent()} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getMonths() }} />
+				<Chart type='LineChart' data={data.getSumBy('day')} xDomain={data.getDomainTime('day')} yDomain={data.getDomainSpent('day')} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getListBy('month') }} />
+				<Chart type='ScatterPlot' data={data.getSumBy('day')} xDomain={data.getDomainTime('day')} yDomain={data.getDomainSpent('day')} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getListBy('month') }} />
+				<Chart type='BarChart' data={data.getSumBy('day')} xDomain={data.getDomainTime('day')} yDomain={data.getDomainSpent('day')} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getListBy('month') }} />
+				<Chart type='BarChart' data={data.getSumBy('month')} xDomain={data.getDomainTime('month')} yDomain={data.getDomainSpent('day')} options={{ xTitle: 'Month', yTitle: '$ Spent', xTicks: data.getListBy('month') }} />
       		</div>
     	);
 	};
