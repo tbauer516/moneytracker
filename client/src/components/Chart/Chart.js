@@ -35,7 +35,7 @@ class Chart extends Component {
 		const ChartType = this.getChartByName(this.props.type);
 		
 		const rendered = this.state.initialRender;
-		const axis = rendered ? <Axis options={ this.props.options } margin={ Chart.config.margin } dimensions={ this.state.dimensions } /> : '';
+		const axis = rendered ? <Axis options={ this.props.options } margin={ Chart.config.margin } axisFontSize={ Chart.config.axisFontSize } dimensions={ this.state.dimensions } /> : '';
 		const chart = rendered ? <ChartType data={this.props.data} config={ Chart.config.visual } margin={ Chart.config.margin } dimensions={ this.state.dimensions } /> : '';
 
 		return (

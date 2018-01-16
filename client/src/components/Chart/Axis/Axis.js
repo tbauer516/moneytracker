@@ -18,14 +18,16 @@ class Axis extends Component {
 		this.renderAxis(
 			this.props.options,
 			this.props.margin,
-			this.props.dimensions
+			this.props.dimensions,
+			this.props.axisFontSize
 		);
 	};
 
 	renderAxis(
 		options,
 		margin,
-		dimensions
+		dimensions,
+		axisFontSize
 	) {
 		const svgWidth = dimensions.body.w;
 		const svgHeight = dimensions.body.h;
@@ -53,7 +55,7 @@ class Axis extends Component {
 			xAxis.append('text')
 				.attr('x', gWidth)
 				.attr('y', margin.bottom / 2)
-				.attr('font-size', options.axisFontSize)
+				.attr('font-size', axisFontSize)
 				.attr('fill', '#000000')
 				.attr('text-anchor', 'end')
 				.text(options.xTitle);
@@ -73,10 +75,10 @@ class Axis extends Component {
 			yAxis.append('text')
 				.attr('x', 0)
 				.attr('y', 0)
-				.attr('font-size', options.axisFontSize)
+				.attr('font-size', axisFontSize)
 				.attr('fill', '#000000')
 				.attr('text-anchor', 'end')
-				.style('transform', 'translate(' + options.axisFontSize + ', 0) rotate(-90deg)')
+				.style('transform', 'translate(' + axisFontSize + ', 0) rotate(-90deg)')
 				.text(options.yTitle);
 		}
 	};
