@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import net from './net';
-import * as d3 from 'd3';
+// import * as d3 from 'd3';
 
 import Data from './components/Data/Data';
 import Chart from './components/Chart/Chart';
@@ -24,7 +24,7 @@ class App extends Component {
 				<Chart type='LineChart' data={data.getSumBy('day')} xDomain={data.getDomainTime('day')} yDomain={data.getDomainSpent('day')} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getListBy('month') }} />
 				<Chart type='ScatterPlot' data={data.getSumBy('day')} xDomain={data.getDomainTime('day')} yDomain={data.getDomainSpent('day')} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getListBy('month') }} />
 				<Chart type='BarChart' data={data.getSumBy('day')} xDomain={data.getDomainTime('day')} yDomain={data.getDomainSpent('day')} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getListBy('month') }} />
-				<Chart type='BarChart' data={data.getSumBy('month')} xDomain={data.getDomainTime('month')} yDomain={data.getDomainSpent('day')} options={{ xTitle: 'Month', yTitle: '$ Spent', xTicks: data.getListBy('month') }} />
+				<Chart type='BarChart' data={data.getSumBy('month')} xDomain={data.getDomainTime('month')} yDomain={data.getDomainSpent('month')} options={{ xTitle: 'Month', yTitle: '$ Spent', xTicks: data.getListBy('month') }} />
       		</div>
     	);
 	};

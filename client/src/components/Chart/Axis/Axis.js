@@ -32,7 +32,7 @@ class Axis extends Component {
 		const svgWidth = dimensions.body.w;
 		const svgHeight = dimensions.body.h;
 		const gWidth = svgWidth - margin.left - margin.right;
-		const gHeight = svgHeight - margin.top - margin.bottom;
+		// const gHeight = svgHeight - margin.top - margin.bottom;
 
 		const barsG = d3.select(this.state.node);
 
@@ -58,6 +58,7 @@ class Axis extends Component {
 				.attr('font-size', axisFontSize)
 				.attr('fill', '#000000')
 				.attr('text-anchor', 'end')
+				.style('transform', 'translate(0, 1em')
 				.text(options.xTitle);
 		}
 
@@ -78,7 +79,7 @@ class Axis extends Component {
 				.attr('font-size', axisFontSize)
 				.attr('fill', '#000000')
 				.attr('text-anchor', 'end')
-				.style('transform', 'translate(' + axisFontSize + ', 0) rotate(-90deg)')
+				.style('transform', 'translate(-3em, 0) rotate(-90deg)')
 				.text(options.yTitle);
 		}
 	};

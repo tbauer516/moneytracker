@@ -30,8 +30,13 @@ class Data {
 			switch (aggregate) {
 				case 'year':
 					raw.setMonth(0);
+					raw.setDate(1);
+					break;
 				case 'month':
 					raw.setDate(1);
+					break;
+				default:
+					break;
 			}
 
 			const time = raw.getTime();
@@ -41,8 +46,22 @@ class Data {
 			return res.sort((a, b) => { return a - b; });
 		}, []);
 
-		const firstMinus = new Date(list[0]);
-		const lastPlus = new Date(list[list.length - 1]);
+		// const firstMinus = new Date(list[0]);
+		// const lastPlus = new Date(list[list.length - 1]);
+
+		// switch (aggregate) {
+		// 	case 'year':
+		// 		lastPlus.setFullYear(lastPlus.getFullYear() + 1);
+		// 		break;
+		// 	case 'month':
+		// 		lastPlus.setMonth(lastPlus.getMonth() + 1);
+		// 		break;
+		// 	case 'day':
+		// 		lastPlus.setDate(lastPlus.getDate() + 1);
+		// 		break;
+		// }
+
+		// list.push(lastPlus.getTime());
 
 		this.listBy[aggregate] = list;
 		return list;
@@ -54,24 +73,29 @@ class Data {
 			return aggregatedData;
 
 		aggregatedData = d3.nest()
-			.key(d => {
+			.key((d) => {
 				const aggDate = d.date;
 				switch (aggregate) {
 					case 'year':
 						aggDate.setMonth(0);
+						aggDate.setDate(1);
+						break;
 					case 'month':
 						aggDate.setDate(1);
+						break;
+					default:
+						break;
 				}
 				
 				return aggDate.getTime();
 			})
-		.rollup(leaves => {
+		.rollup((leaves) => {
 			return d3.sum(leaves, d => {
 				return d.spent;
 			});
 		})
 		.entries(this.raw)
-		.map(d => {
+		.map((d) => {
 			return { date: new Date(+d.key), spent: d.value };
 		});
 
@@ -87,19 +111,27 @@ class Data {
 
 		const data = this.getSumBy(aggregate);
 
-		domain = d3.extent(data, d => { return d.date; });
-		const max = domain[1];
+		domain = d3.extent(data, (d) => { return d.date.getTime(); });
+		const max = new Date(domain[1]);
 
 		switch (aggregate) {
 			case 'year':
-				max.setMonth(max.getMonth() + 1);
+				max.setFullYear(max.getFullYear() + 1);
+				max.setMonth(0);
 				max.setDate(1);
 				break;
 			case 'month':
+				max.setMonth(max.getMonth() + 1);
+				max.setDate(1);
+				break;
 			case 'day':
 				max.setDate(max.getDate() + 1);
 				break;
+			default:
+				break;
 		}
+
+		domain[1] = max.getTime();
 
 		this.domainTime[aggregate] = domain;
 		return domain;
@@ -113,7 +145,7 @@ class Data {
 
 		const data = this.getSumBy(aggregate);
 
-		domain = d3.extent(data, d => { return d.spent; });
+		domain = d3.extent(data, (d) => { return d.spent; });
 		domain[0] = 0;
 
 		this.domainSpent[aggregate] = domain;
@@ -138,7 +170,7 @@ class Data {
 
 	generateEnum(data) {
 		if (!data || data.length < 1)
-			throw 'generateEnum data passed is either undefined or empty';
+			throw new Error('generateEnum data passed is either undefined or empty');
 
 		const fields = [];
 		for (let key in Object.keys(data[0])) {

@@ -1,5 +1,5 @@
 import BaseChart from './BaseChart.js';
-import * as d3 from 'd3';
+// import * as d3 from 'd3';
 
 class ScatterPlot extends BaseChart {
 	renderViz(

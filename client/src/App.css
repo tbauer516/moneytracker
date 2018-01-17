@@ -15,7 +15,7 @@
 }
 
 @media screen and  (min-width: 992px) {
-  .root {
+  .app-root {
     grid-template-columns: auto auto;
   }
 }
