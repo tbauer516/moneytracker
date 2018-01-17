@@ -155,7 +155,7 @@ class Data {
 	parseDataBlob(data) {
 		return d3.csvParse(data, (d) => {
 			return {
-				time: new Date(d.Timestamp),
+				timestamp: new Date(d.Timestamp),
 				date: new Date(d.Date),
 				location: d.Location,
 				category: d.Category,
