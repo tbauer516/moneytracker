@@ -10,7 +10,7 @@ Timestamp,Date,Location,Category,Spent,Received,Budget,Purchased By,Item For
 12/9/2017 14:17:26,"Dec 3, 2017",Amazon,Groceries,17.41,0.00,0.00,Anna,Anna
 12/9/2017 14:18:09,"Dec 3, 2017",Amazon,Gifting,22.65,0.00,0.00,Anna,Anna
 12/9/2017 14:39:00,"Dec 3, 2017",GAP,Clothing,150.00,0.00,0.00,Anna,Both
-12/9/2017 14:39:24,"Dec 3, 2017",GAP,Clothing,0.00,(42.92),0.00,Anna,Anna
+12/9/2017 14:39:24,"Dec 3, 2017",GAP,Clothing,0.00,42.92,0.00,Anna,Anna
 12/9/2017 14:39:56,"Dec 3, 2017",J. CREW,Clothing,183.75,0.00,0.00,Anna,Anna
 12/9/2017 14:36:23,"Dec 2, 2017",Amazon,Anna's Fun/Extras,2.19,0.00,0.00,Anna,Anna
 12/1/2017 22:11:18,"Nov 30, 2017",Rite Aid,Prescriptions,26.42,0.00,0.00,Anna,Anna
@@ -19,7 +19,7 @@ Timestamp,Date,Location,Category,Spent,Received,Budget,Purchased By,Item For
 12/4/2017 14:42:06,"Nov 28, 2017",QFC,Groceries,24.64,0.00,0.00,Anna,Anna
 12/9/2017 14:33:07,"Nov 28, 2017",Cascade Kennels,Dog,325.50,0.00,0.00,Anna,Anna
 12/9/2017 14:30:42,"Nov 26, 2017",Beautycounter,Makeup and Skincare,397.48,0.00,0.00,Anna,Anna
-12/9/2017 14:31:15,"Nov 26, 2017",Beautycounter,Makeup & Skincare,0.00,(29.00),0.00,Anna,Anna
+12/9/2017 14:31:15,"Nov 26, 2017",Beautycounter,Makeup & Skincare,0.00,29.00,0.00,Anna,Anna
 12/9/2017 14:29:10,"Nov 24, 2017",Beachbody On Demand,Fitness,42.94,0.00,0.00,Anna,Anna
 12/9/2017 14:29:46,"Nov 24, 2017",Julie's Wearable Art,Anna's Fun/Extras,22.14,0.00,0.00,Anna,Anna
 12/9/2017 14:31:54,"Nov 24, 2017",Nordstrom,Clothing,15.27,0.00,0.00,Anna,Anna
@@ -63,7 +63,7 @@ Timestamp,Date,Location,Category,Spent,Received,Budget,Purchased By,Item For
 10/25/2017 15:26:12,"Oct 25, 2017",Zoka,Out to Eat,5.33,0.00,0.00,Anna,Anna
 10/25/2017 15:27:45,"Oct 25, 2017",Joey’s,Out to Eat,22.00,0.00,0.00,Anna,Anna
 10/25/2017 15:55:47,"Oct 25, 2017",Rite Aid,Prescriptions,3.89,0.00,0.00,Anna,Anna
-10/25/2017 15:56:40,"Oct 25, 2017",Office Depot,Office,0.00,(8.58),0.00,Anna,Anna
+10/25/2017 15:56:40,"Oct 25, 2017",Office Depot,Office,0.00,8.58,0.00,Anna,Anna
 11/15/2017 12:30:34,"Oct 25, 2017",Lara Casey Shop,Anna's Fun/Extras,83.10,0.00,0.00,Anna,Anna
 10/23/2017 11:24:19,"Oct 23, 2017",Office Depot,Office,20.91,0.00,0.00,Anna,Anna
 10/24/2017 19:43:30,"Oct 22, 2017",Amazon Fresh,Groceries,54.49,0.00,0.00,Anna,Anna
@@ -124,7 +124,7 @@ Timestamp,Date,Location,Category,Spent,Received,Budget,Purchased By,Item For
 9/6/2017 13:26:40,"Sep 6, 2017",Starbucks,Out to Eat,13.10,0.00,0.00,Anna,Anna
 9/6/2017 20:45:13,"Sep 6, 2017",Jet City Pizza,Out to Eat,24.47,0.00,0.00,Anna,Anna
 10/24/2017 19:24:06,"Sep 5, 2017",Guardian Water,Utilities,77.04,0.00,0.00,Both,Both
-9/4/2017 12:48:03,"Sep 4, 2017",Amazon Fresh,Groceries,0.00,(1.89),0.00,Tyler,Tyler
+9/4/2017 12:48:03,"Sep 4, 2017",Amazon Fresh,Groceries,0.00,1.89,0.00,Tyler,Tyler
 9/4/2017 17:41:59,"Sep 4, 2017",Metropolitan Market ,Groceries,56.22,0.00,0.00,Tyler,Tyler
 10/24/2017 19:20:14,"Sep 4, 2017",Radford Court Apartments,Rent,"1,826.50",0.00,0.00,Both,Both
 9/3/2017 17:48:09,"Sep 3, 2017",Amazon Fresh,Groceries,43.31,0.00,0.00,Tyler,Tyler

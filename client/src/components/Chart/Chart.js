@@ -78,7 +78,7 @@ class Chart extends Component {
 
 		return {
 			x: d3.scaleLinear().domain(xDomain).range([0, gW]),
-			y: d3.scaleLinear().domain(yDomain).range([gH, Chart.config.visual.radius])
+			y: d3.scaleLinear().domain(yDomain).range([gH, 0 /*Chart.config.visual.radius*/])
 		};
 	};
 

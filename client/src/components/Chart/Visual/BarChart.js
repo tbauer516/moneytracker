@@ -51,14 +51,14 @@ class BarChart extends BaseChart {
 		bar.enter()
 			.append('rect')
 			.attr('fill', '#000000')
-			.attr('x', (d) => { return x(d.date); })
-			.attr('y', (d) => { return y(d.spent); })
+			.attr('x', (d) => { return x(d.key); })
+			.attr('y', (d) => { return y(d.val); })
 			.attr('width', (d) => {
 				const width = x(extent[1]) - x(extent[0]);
-				const bar = (width + margin.left + margin.right) / numBuckets;
+				const bar = width / numBuckets;
 				return bar - 2;
 			})
-			.attr('height', (d) => { return dimensions.body.h - margin.top - margin.bottom - y(d.spent); })
+			.attr('height', (d) => { return dimensions.body.h - margin.top - margin.bottom - y(d.val); })
 			.merge(bar);
 
 		bar.exit()

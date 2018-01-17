@@ -13,9 +13,15 @@ class LineChart extends BaseChart {
 		let y = dimensions.scale.y;
 
 		let line = d3.line()
-			.curve(d3.curveCardinal.tension(.8))
-			.x((d) => { return x(d.date); })
-			.y((d) => { return y(d.spent); })
+			// .curve(d3.curveCardinal.tension(.9))
+			// .curve(d3.curveCatmullRom.alpha(.05))
+			// .curve(d3.curveNatural)
+			// .curve(d3.curveMonotoneX)
+			.curve(d3.curveLinear)
+			// .curve(d3.curveBundle.beta(1))
+			// .curve(d3.curveBasis)
+			.x((d) => { return x(d.key); })
+			.y((d) => { return y(d.val); })
 
 		node.append('path')
 			.datum(data)

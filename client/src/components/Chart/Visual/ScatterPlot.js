@@ -19,8 +19,8 @@ class ScatterPlot extends BaseChart {
 			.append('circle')
 			.attr('fill', '#000000')
 			.attr('r', config.radius)
-			.attr('cx', (d) => { return x(d.date); })
-			.attr('cy', (d) => { return y(d.spent); })
+			.attr('cx', (d) => { return x(d.key); })
+			.attr('cy', (d) => { return y(d.val); })
 			.merge(circ);
 
 		circ.exit()

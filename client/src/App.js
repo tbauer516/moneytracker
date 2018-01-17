@@ -21,10 +21,11 @@ class App extends Component {
 
 		return (
 			<div className="app-root">
-				<Chart type='LineChart' data={data.getSumBy('day')} xDomain={data.getDomainTime('day')} yDomain={data.getDomainSpent('day')} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getListBy('month') }} />
-				<Chart type='ScatterPlot' data={data.getSumBy('day')} xDomain={data.getDomainTime('day')} yDomain={data.getDomainSpent('day')} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getListBy('month') }} />
-				<Chart type='BarChart' data={data.getSumBy('day')} xDomain={data.getDomainTime('day')} yDomain={data.getDomainSpent('day')} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getListBy('month') }} />
-				<Chart type='BarChart' data={data.getSumBy('month')} xDomain={data.getDomainTime('month')} yDomain={data.getDomainSpent('month')} options={{ xTitle: 'Month', yTitle: '$ Spent', xTicks: data.getListBy('month') }} />
+				<Chart type='LineChart' data={data.getSumSpentByDate('day')} xDomain={data.getDomainDate('day')} yDomain={data.getDomainSpent('day')} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getListByDate('month') }} />
+				<Chart type='LineChart' data={data.getSumReceivedByDate('day')} xDomain={data.getDomainDate('day')} yDomain={data.getDomainReceived('day')} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getListByDate('month') }} />
+				<Chart type='ScatterPlot' data={data.getSumSpentByDate('day')} xDomain={data.getDomainDate('day')} yDomain={data.getDomainSpent('day')} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getListByDate('month') }} />
+				<Chart type='BarChart' data={data.getSumSpentByDate('day')} xDomain={data.getDomainDate('day')} yDomain={data.getDomainSpent('day')} options={{ xTitle: 'Day', yTitle: '$ Spent', xTicks: data.getListByDate('month') }} />
+				<Chart type='BarChart' data={data.getSumSpentByDate('month')} xDomain={data.getDomainDate('month')} yDomain={data.getDomainSpent('month')} options={{ xTitle: 'Month', yTitle: '$ Spent', xTicks: data.getListByDate('month') }} />
       		</div>
     	);
 	};
