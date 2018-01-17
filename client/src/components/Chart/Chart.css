@@ -20,3 +20,15 @@
 .chart-container > svg .xAxis .tick text {
 	transform: rotate(-10deg) translate(-40px, 0px);
 }
+
+.chart-axis {
+	shape-rendering: crispEdges;
+}
+
+.chart-vis rect {
+	shape-rendering: crispEdges;
+}
+
+.chart-vis circle, .chart-vis path {
+	shape-rendering: geometricPrecision;
+}
